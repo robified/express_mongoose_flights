@@ -20,4 +20,5 @@ var flightSchema = new Schema({
     }
 });
 
+// Compile the schema into a model and export it
 module.exports = mongoose.model('Flight', flightSchema);
