@@ -13,7 +13,7 @@ var flightSchema = new Schema({
         max: 9999
     },
     departs: {
-        type: Dates
+        type: Date
         // default: function() { One year from date created
         //     return
         // }
