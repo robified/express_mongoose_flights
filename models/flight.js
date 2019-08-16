@@ -13,10 +13,12 @@ var flightSchema = new Schema({
         max: 9999
     },
     departs: {
-        type: Date
-        // default: function() { One year from date created
-        //     return
-        // }
+        type: Date,
+        default: function() {
+            var oneYear = new Date();
+            oneYear.setFullYear(oneYear.getFullYear() + 1);
+            return oneYear.toLocaleDateString();
+        }
     }
 });
 
