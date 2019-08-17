@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 
-var Schema = mongoose.Schema;
+var Schema = mongoose.Schema; // optional shortcut to the mongoose.Schema class
 
 var flightSchema = new Schema({
     airline: {

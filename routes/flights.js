@@ -3,5 +3,6 @@ var router = express.Router();
 var flightsCtrl = require('../controllers/flights');
 
 router.get('/', flightsCtrl.index);
+router.post('/', flightsCtrl.create);
 
 module.exports = router;

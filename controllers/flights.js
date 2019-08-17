@@ -1,7 +1,12 @@
 var Flight = require('../models/flight');
 
 module.exports = {
-    index
+    index,
+    create
+};
+
+function create(req, res) {
+    
 };
 
 function index(req, res) {
