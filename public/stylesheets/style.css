@@ -2,6 +2,11 @@ body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
+form {
+  display: grid;
+  width : 50vmin;
+  grid-gap: 8px;
+}
 
 a {
   color: #00B7FF;
