@@ -34,7 +34,15 @@ var flightSchema = new Schema({
             oneYear.setFullYear(oneYear.getFullYear() + 1);
             return oneYear.toLocaleDateString();
         }
-    }
+    },
+    airport: {
+        type: String,
+        enum: ['AUS', 'DAL', 'LAX', 'SEA'],
+        default: 'SEA'
+    },
+    destinations: [destinationSchema]
+}, {
+    timestamps: true
 });
 
 
