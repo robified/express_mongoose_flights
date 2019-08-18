@@ -5,12 +5,14 @@ var Schema = mongoose.Schema; // optional shortcut to the mongoose.Schema class
 var flightSchema = new Schema({
     airline: {
         type: String,
-        enum: ['American', 'Southwest', 'United']
+        enum: ['American', 'Southwest', 'United'],
+        required: true
     },
     flightNo: {
         type: Number,
         min: 10,
-        max: 9999
+        max: 9999,
+        required: true
     },
     departs: {
         type: Date,
@@ -23,4 +25,5 @@ var flightSchema = new Schema({
 });
 
 // Compile the schema into a model and export it
+// When we want to use 'Flights', it'll get lowercase and pluralized
 module.exports = mongoose.model('Flight', flightSchema);
