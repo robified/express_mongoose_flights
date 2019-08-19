@@ -27,4 +27,26 @@
     <input type="submit" value="Add Destination">
     </form>
 
+<% if (flight.destinations.length) { %>
+<table>
+    <thead>
+        <tr>
+            <th>Destination</th>
+            <th>Arrival</th>
+        </tr>
+    </thead>
+    
+    <tbody>
+        <% flight.destinations.forEach(function(f) { %>
+        <tr>
+          <td><%= f.airport %></td>
+          <td><%= f.arrival.toLocaleDateString() %></td>
+        </tr>
+      <% }); %>
+    </tbody>    
+</table>    
+<% } else { %>
+    <h5>No Destinations</h5>
+  <% } %>
+  
 <%- include('../partials/footer') %>
