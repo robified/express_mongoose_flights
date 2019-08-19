@@ -4,13 +4,25 @@ module.exports = {
     indexView,
     newView,
     create,
+    showView
+};
+
+function showView(req, res) {
+    Flight.findById(req.params.id, function(err, flight) {
+        res.render('flights/show', {
+            title: 'Flight Details',
+            flight
+        });
+    });
 };
 
 function create(req, res) {
+    for (let key in req.body) {
+        if (req.body[key] === '') delete req.body[key];
+    }
     var flight = new Flight(req.body);
     flight.save(function(err) {
       if (err) return res.redirect('/flights/new');
-      console.log(flight);
       res.redirect('/flights');
     });
 };
