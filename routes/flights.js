@@ -4,9 +4,9 @@ var flightsCtrl = require('../controllers/flights');
 
 
 // These are for form viewing
-router.get('/', flightsCtrl.indexView);
-router.get('/new', flightsCtrl.newView);
-router.get('/:id', flightsCtrl.showView);
+router.get('/', flightsCtrl.index);
+router.get('/new', flightsCtrl.new);
+router.get('/:id', flightsCtrl.show);
 
 
 // These are the actions for the form
