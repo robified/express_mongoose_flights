@@ -24,9 +24,10 @@
     <label for="arrival">Choose a date and time for your arrival:</label>
     <input type="datetime-local" id="arrival" name="arrival"><br>
             
-    <input type="submit" value="Add Destination">
+    <input type="submit" value="Add a Destination">
     </form>
 
+<br><br>
 <% if (flight.destinations.length) { %>
 <table>
     <thead>
@@ -37,10 +38,10 @@
     </thead>
     
     <tbody>
-        <% flight.destinations.forEach(function(f) { %>
+        <% flight.destinations.forEach(function(d) { %>
         <tr>
-          <td><%= f.airport %></td>
-          <td><%= f.arrival.toLocaleDateString() %></td>
+          <td><%= d.airport %></td>
+          <td><%= d.arrival %></td>
         </tr>
       <% }); %>
     </tbody>    
@@ -48,5 +49,34 @@
 <% } else { %>
     <h5>No Destinations</h5>
   <% } %>
-  
+
+<br><br>
+<h2>Tickets</h2>
+    <form action="/flights/<%= flight._id %>/tickets/new">
+    <input type="submit" value="Add a Ticket">
+    </form>
+
+<br><br>
+<% if (tickets.length) { %>
+    <table>
+        <thead>
+            <tr>
+                <th>Seat</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        
+        <tbody>
+            <% tickets.forEach(function(t) { %>
+            <tr>
+              <td><%= t.seat %></td>
+              <td>$<%= t.price %></td>
+            </tr>
+          <% }); %>
+        </tbody>    
+    </table>    
+    <% } else { %>
+        <h5>No Tickets</h5>
+      <% } %>
+
 <%- include('../partials/footer') %>
